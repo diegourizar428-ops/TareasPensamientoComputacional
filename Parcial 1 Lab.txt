@@ -1,0 +1,25 @@
+num= int(input("Ingrese un numero:"))
+n1= num//100
+r1= num%100
+n2= r1//10
+n3= r1%10
+aux= 0
+
+if(num>99) and (num<1000):
+    if (n1>n2): 
+        aux = n1
+        n1 = n2
+        n2 = aux
+    if(n2>n3):
+        aux = n2
+        n2 = n3
+        n3 = aux
+    if (n1>n2):
+        aux = n1
+        n1 = n2
+        n2 = aux
+else:
+    print("numero invalido")
+
+print("Ascendente: ", n1, n2, n3)
+print("Descendente: ", n3, n2, n1)
