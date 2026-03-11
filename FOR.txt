@@ -1,0 +1,42 @@
+#for i in range(5):
+#   print(i)
+
+#for i in range(-2,60):
+#   print(i)
+
+#for i in range(0,20,2):
+#   print(i)
+
+#for i in range(10,0,-1):
+#   print(i)
+
+#for i in range(5): #imprima 5 veces url
+# print(i,".", "url") para saber cuantas veces se imprime url
+
+#i es el indice para saber cuantas veces se repite ese bucle
+
+#contador=0
+#buscar="a"
+#for letra in "murcielago123aeiou": #muestra cada palabra separada
+#   if letra == buscar:
+#       contador=contador+1
+#   print(letra)
+#   print("se encontraron",  contador,"veces la letra", buscar)
+
+#suma=0
+#for i in range(1,4):
+#   suma=suma+i
+#print(suma)
+
+#for i in range(1,11):
+#   print("5 *", i, "=", 5*1)
+
+#cont = 0
+#for i in range(1, 50+1, 1):
+#    if(i%3==0):
+#        cont=cont+1
+        
+#print("Hay: ", cont, "multiplos de 3")
+
+#for i in range(6,1,-1):
+#    print("*"*i)
