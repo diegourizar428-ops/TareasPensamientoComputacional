@@ -1,0 +1,42 @@
+opcion = ""
+
+while opcion != "3":
+    print("--- MENÚ PRINCIPAL ---")
+    print("1. Convertir a Binario")
+    print("2. Convertir a Maya")
+    print("3. Salir")
+    
+    opcion = input("Selecciona una opción: ")
+
+    if opcion == "1":
+        print("--- BINARIOS ---")
+        numero = int(input("Ingresa un número decimal: "))
+        binario = bin(numero)[2:]
+        print("Número en:", binario)
+
+    elif opcion == "2":
+        print("--- MAYA ---")
+        numero = int(input("Ingresa un número: "))
+
+        if numero >= 0:
+            print("Número en maya:")
+
+            while numero > 0:
+                residuo = numero % 20
+                numero = numero // 20
+
+                lineas = residuo // 5
+                puntos = residuo % 5
+
+                print("Nivel:")
+                print("Líneas:", "----- " * lineas)
+                print("Puntos:", "• " * puntos)
+                print("---")
+        else:
+            print("Número inválido")
+
+    elif opcion == "3":
+        print("Saliendo del programa...")
+
+    else:
+        print("Opción no válida")
