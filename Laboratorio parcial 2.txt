@@ -1,0 +1,86 @@
+url=[]
+
+tam=int(input("Ingrese el tamaño del arreglo: "))
+num=int(input("Ingrese el numero: "))
+cont= 0
+for i in range (1, tam+1):
+    cont=cont+num
+    url.append(cont)
+    
+print(url)
+
+
+url=[]
+orl=[]
+tam=int(input("Ingrese el tamaño del arreglo: "))
+
+
+for i in range (1, tam+1):
+    nom=input("Ingrese un nombre: ")
+    url.append(nom)
+    orl.append(len(nom))
+    
+print(url)
+print(orl)
+
+
+clientes=[]
+resultados=[]
+
+cl=int(input("Ingrese cuantos clientes son: "))
+
+print("Opciones: ")
+print("5. Excelente")
+print("4. Muy buena")
+print("3. Buena")
+print("2. Regular")
+print("1. Malo")
+
+cont=0
+op5=0
+op4=0
+op3=0
+op2=0
+op1=0
+
+for i in range(1, cl+1):
+    cont=cont+1
+    clientes.append(cont)
+    
+    op=int(input("Evalue la atencion de 5 a 1: "))
+    resultados.append(op)
+    if(op==5):
+        op5=op5+1
+    if(op==4):
+        op4=op4+1
+    if(op==3):
+        op3=op3+1
+    if(op==2):
+        op2=op2+1
+    if(op==1):
+        op1=op1+1
+        
+print(clientes)
+print(resultados)
+print("Excelente: ", op5)
+print("Muy buena: ", op4)
+print("Buena:", op3)
+print("Regular:", op2)
+print("Malo: ", op1)
+opfull=max(op1,op2,op3,op4,op5)
+print("La opcion más elegida es: ", opfull)
+suma=0
+
+for j in resultados:
+    suma=suma+j
+
+prom=suma/cl
+print("El promedio es: ", prom)
+
+aux=0
+for n in resultados:
+    if(prom>n):
+        aux=aux+1
+
+print("El porcentaje menor al promedio es: ",((aux*100)/cl),"%")
+    
