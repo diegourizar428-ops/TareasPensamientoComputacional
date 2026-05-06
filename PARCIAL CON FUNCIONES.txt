@@ -1,0 +1,47 @@
+def analizar_numeros(lista):
+    conteo_pares = 0
+    conteo_impares = 0
+    conteo_positivos = 0
+    conteo_negativos = 0
+    conteo_ceros = 0
+    
+    for i in range(len(lista)):
+        numero = lista[i]
+        
+        if numero > 0:
+            conteo_positivos = conteo_positivos + 1
+        elif numero < 0:
+            conteo_negativos = conteo_negativos + 1
+        else:
+            conteo_ceros = conteo_ceros + 1
+            
+        if numero % 2 == 0:
+            conteo_pares = conteo_pares + 1
+        else:
+            conteo_impares = conteo_impares + 1
+            
+    return conteo_pares, conteo_impares, conteo_positivos, conteo_negativos, conteo_ceros
+
+cantidad = int(input("¿Cuántos números ingresará?: "))
+numeros = []
+
+for i in range(cantidad):
+    valor = int(input("Ingrese el valor: "))
+    numeros.append(valor)
+
+if len(numeros) > 0:
+    res_pares, res_impares, res_pos, res_neg, res_ceros = analizar_numeros(numeros)
+    
+    suma_total = sum(numeros)
+    numero_mayor = max(numeros)
+    numero_menor = min(numeros)
+
+    print("Lista completa:", numeros)
+    print("Pares:", res_pares)
+    print("Impares:", res_impares)
+    print("Positivos:", res_pos)
+    print("Negativos:", res_neg)
+    print("Ceros:", res_ceros)
+    print("Suma total:", suma_total)
+    print("Número mayor:", numero_mayor)
+    print("Número menor:", numero_menor)
