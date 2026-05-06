@@ -1,0 +1,47 @@
+M = [
+    [5, 8, 2],
+    [1, 4, 7],
+    [3, 9, 6]
+]
+
+sf = [0, 0, 0]
+sc = [0, 0, 0]
+
+for i in range(3):
+    for j in range(3):
+        sf[i] += M[i][j]
+        sc[j] += M[i][j]
+
+print(M)
+print(sf)
+print(sc)
+
+
+M = [
+    [8, 1, 6],
+    [3, 5, 7],
+    [4, 9, 2]
+]
+
+
+sf = [0, 0, 0]  
+sc = [0, 0, 0]  
+d1 = 0          
+d2 = 0          
+
+
+for i in range(3):
+    d1 += M[i][i]       
+    d2 += M[i][2-i]    
+    for j in range(3):
+        sf[i] += M[i][j]  
+        sc[j] += M[i][j]  
+
+
+es_magico = (sf == [15,15,15] and sc == [15,15,15] and d1 == 15 and d2 == 15)
+
+
+print("Filas:", sf)
+print("Columnas:", sc)
+print("Diagonales:", d1, "y", d2)
+print("¿Es mágico?:", es_magico)
