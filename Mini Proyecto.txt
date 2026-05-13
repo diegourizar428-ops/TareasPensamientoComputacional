@@ -1,0 +1,54 @@
+import tkinter as tk
+from tkinter import messagebox
+
+dias = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes"]
+niveles_azucar = [130, 160, 95, 175, 160]
+niveles_sal = [2000, 2400, 1800, 2400, 2700]
+sistolica = [115, 130, 110, 125, 175]
+diastolica = [75, 85, 70, 78, 95]
+
+def consultar_dia():
+    seleccion = entrada_dia.get().capitalize()
+    if seleccion in dias:
+        i = dias.index(seleccion)
+        
+        a = niveles_azucar[i]
+        s = niveles_sal[i]
+        sis = sistolica[i]
+        dia = diastolica[i]
+        
+        # Lógica de evaluación [cite: 16, 17, 18, 21, 22]
+        msg_azucar = f"Azúcar: {a} mg/dL - Normal" if 70 <= a <= 140 else f"ALERTA AZÚCAR: {a} mg/dL (Fuera de rango)"
+        msg_sal = f"Sal: {s} mg - Normal" if s <= 2300 else f"ALERTA SAL: {s} mg (Exceso)"
+        
+        if sis < 120 and dia < 80:
+            est = "Normal"
+        elif 120 <= sis <= 129 and dia < 80:
+            est = "Elevada"
+        elif (130 <= sis <= 139) or (80 <= dia <= 89):
+            est = "Hipertensión Etapa 1"
+        else:
+            est = "Hipertensión Etapa 2"
+            
+        resultado = f"Día: {seleccion}\n\n{msg_azucar}\n{msg_sal}\nPresión: {sis}/{dia} mmHg ({est})"
+        label_resultado.config(text=resultado, fg="black")
+    else:
+        messagebox.showerror("Error", "Día no encontrado. Intenta con Lunes, Martes, etc.")
+
+# Configuración de la Ventana Principal
+ventana = tk.Tk()
+ventana.title("Sistema de Monitoreo de Salud")
+ventana.geometry("400x300")
+
+tk.Label(ventana, text="Ingrese el día a consultar:", font=("Arial", 12)).pack(pady=10)
+
+entrada_dia = tk.Entry(ventana, font=("Arial", 12))
+entrada_dia.pack(pady=5)
+
+boton_buscar = tk.Button(ventana, text="Ver Reporte", command=consultar_dia, bg="#4CAF50", fg="white")
+boton_buscar.pack(pady=10)
+
+label_resultado = tk.Label(ventana, text="", font=("Arial", 11), justify="left")
+label_resultado.pack(pady=20)
+
+ventana.mainloop()
