@@ -1,0 +1,66 @@
+inventario = {}
+opcion = ""
+
+while opcion != "5":
+    print("\n=== MENÚ PRINCIPAL ===")
+    print("1. Insertar datos")
+    print("2. Modificar datos")
+    print("3. Eliminar datos")
+    print("4. Mostrar datos")
+    print("5. Salir")
+    
+    opcion = input("Selecciona una opción: ")
+    
+    if opcion == "1":
+        print("\n--- INSERTAR ---")
+        id_prod = input("Introduce el ID único: ")
+        if id_prod in inventario:
+            print("Ese ID ya existe.")
+        else:
+            nombre = input("Nombre: ")
+            categoria = input("Categoría: ")
+            precio = input("Precio: ")
+            stock = input("Stock: ")
+            datos_fijos = (nombre, categoria)
+            datos_variables = [precio, stock]
+            inventario[id_prod] = (datos_fijos, datos_variables)
+            print("Datos guardados con éxito.")
+            
+    elif opcion == "2":
+        print("\n--- MODIFICAR ---")
+        id_prod = input("Introduce el ID del producto a modificar: ")
+        if id_prod in inventario:
+            datos_variables = inventario[id_prod][1] 
+            print("Datos actuales -> Precio:", datos_variables[0], "| Stock:", datos_variables[1])
+            nuevo_precio = input("Nuevo precio: ")
+            nuevo_stock = input("Nuevo stock: ")
+            datos_variables[0] = nuevo_precio
+            datos_variables[1] = nuevo_stock
+            print("Datos modificados con éxito.")
+        else:
+            print("El ID no existe.")
+            
+    elif opcion == "3":
+        print("\n--- ELIMINAR ---")
+        id_prod = input("Introduce el ID a eliminar: ")
+        if id_prod in inventario:
+            del inventario[id_prod]
+            print("Producto eliminado correctamente.")
+        else:
+            print("El ID no existe.")
+            
+    elif opcion == "4":
+        print("\n--- MOSTRAR DATOS ---")
+        if inventario == {}:
+            print("No hay datos registrados.")
+        else:
+            for id_prod in inventario:
+                datos_fijos = inventario[id_prod][0]
+                datos_variables = inventario[id_prod][1]
+                print("ID:", id_prod, "| Nombre:", datos_fijos[0], "| Categoría:", datos_fijos[1], "| Precio:", datos_variables[0], "| Stock:", datos_variables[1])
+                
+    elif opcion == "5":
+        print("Programa terminado. ¡Adiós!")
+        
+    else:
+        print("Opción incorrecta, intenta de nuevo.")
